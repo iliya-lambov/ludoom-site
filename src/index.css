@@ -1,15 +1,41 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #F5F3EE;
-  --color-carbon: #17181A;
-  --color-carbon-soft: #4A4C50;
+  --color-carbon: #0E0F11;
+  --color-panel: #16171B;
+  --color-panel-2: #1D1E24;
+  --color-paper: #ECECEA;
+  --color-muted: #9DA0A8;
   --color-signal: #E4572E;
-  --color-line: #DAD6CC;
+  --color-signal-soft: #FF7A50;
+  --color-line: #26272C;
   --font-display: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
 }
 
 html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); background: var(--color-paper); color: var(--color-carbon); }
+body { font-family: var(--font-body); background: var(--color-carbon); color: var(--color-paper); }
 h1,h2,h3,.display { font-family: var(--font-display); }
+
+/* Animated slogan word: flips in from below with a glow of signal orange */
+@keyframes wordIn {
+  0%   { opacity: 0; transform: translateY(0.55em) rotateX(55deg) scale(0.96); filter: blur(4px); }
+  60%  { filter: blur(0); }
+  100% { opacity: 1; transform: none; }
+}
+.word-anim {
+  display: inline-block;
+  animation: wordIn 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  color: var(--color-signal);
+  text-shadow: 0 0 24px rgba(228, 87, 46, 0.35);
+  transform-origin: bottom center;
+}
+
+/* Subtle grid backdrop, midjourney-ish depth */
+.hero-grid-bg {
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(228, 87, 46, 0.12), transparent 60%),
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+}
