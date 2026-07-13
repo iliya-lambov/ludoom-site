@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #F5F3EE;
+  --color-carbon: #17181A;
+  --color-carbon-soft: #4A4C50;
+  --color-signal: #E4572E;
+  --color-line: #DAD6CC;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--color-paper); color: var(--color-carbon); }
+h1,h2,h3,.display { font-family: var(--font-display); }
